@@ -15,12 +15,6 @@ namespace Backend.Services
             repository = new GenericRepository<T>();
         }
 
-        public GenericService(GenericRepository<T> genericRepository)
-        {
-            if(repository == null)
-                repository = genericRepository;
-        }
-
         public virtual void Add(T entity)
         {
             repository.Add(entity);
