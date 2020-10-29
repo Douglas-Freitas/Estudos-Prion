@@ -58,6 +58,7 @@
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\PessoaRepository.cs" />
     <Compile Include="Services\GenericService.cs" />
+    <Compile Include="Services\PessoaService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

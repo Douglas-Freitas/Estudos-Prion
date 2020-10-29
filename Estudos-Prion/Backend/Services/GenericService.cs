@@ -39,6 +39,7 @@ namespace Backend.Services
         }
         public void Dispose()
         {
+            repository.Dispose();
         }
     }
 }
