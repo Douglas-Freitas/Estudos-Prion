@@ -20,11 +20,11 @@ export default {
       headers: [
         {
           text: 'Nome',
-          value: 'nome',
+          value: 'Nome',
         },
         {
           text: 'Email',
-          value: 'email',
+          value: 'Email',
         },
       ],
       pessoas: [],
