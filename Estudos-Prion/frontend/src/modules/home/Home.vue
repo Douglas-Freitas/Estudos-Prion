@@ -8,7 +8,7 @@
 <script>
 // @ is an alias to /src
 import { HelloWorld } from '@/components';
-import { pessoaAPI } from './API/PessoaAPI';
+import { pessoaAPI } from '@/modules/pessoa/API/PessoaAPI';
 
 export default {
   name: 'Home',
