@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import { pessoaAPI } from './API/PessoaAPI';
 
 export default {
@@ -44,10 +45,16 @@ export default {
     };
   },
   methods: {
+    ...mapActions([
+      'setLoading',
+    ]),
     salvarPessoa() {
       if (this.$refs.form.validate()) {
+        console.log(this.loading);
+        this.setLoading(true);
         pessoaAPI.create(this.pessoa)
           .then((resp) => {
+            this.setLoading(false);
             console.log(resp);
           })
           .catch((error) => { console.log(error); });

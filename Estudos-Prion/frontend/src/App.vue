@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Loader :is-visible="loading"></Loader>
     <v-app>
       <div id="nav">
         <router-link to="/login">Login</router-link> |
@@ -12,6 +13,25 @@
     </v-app>
   </div>
 </template>
+
+<script>
+import Loader from '@/components/Loader.vue';
+import { mapActions, mapGetters } from 'vuex';
+
+export default {
+  computed: {
+    ...mapGetters(['loading']),
+  },
+  components: {
+    Loader,
+  },
+  methods: {
+    ...mapActions([
+      'setLoading',
+    ]),
+  },
+};
+</script>
 
 <style lang="scss">
 #app {

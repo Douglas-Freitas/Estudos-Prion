@@ -25,6 +25,7 @@ export default {
   methods: {
     ...mapActions([
       'setUser',
+      'setLoading',
     ]),
     login() {
       if (this.payload.login === '123' && this.payload.senha === '123') {
