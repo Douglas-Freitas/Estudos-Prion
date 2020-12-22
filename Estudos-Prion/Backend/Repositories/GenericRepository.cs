@@ -9,7 +9,7 @@ namespace Backend.Repositories
 {
     public class GenericRepository<T> : IDisposable where T : class
     {
-        private GenericContext context;
+        protected GenericContext context;
 
         public GenericRepository()
         {

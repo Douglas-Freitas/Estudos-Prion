@@ -15,5 +15,6 @@ namespace Backend.Contexts
         }
 
         public DbSet<Pessoa> Pessoas { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
     }
 }

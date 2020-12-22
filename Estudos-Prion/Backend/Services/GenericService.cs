@@ -9,7 +9,7 @@ namespace Backend.Services
 {
     public class GenericService<T> : IDisposable where T : class
     {
-        private GenericRepository<T> repository;
+        protected GenericRepository<T> repository;
         public GenericService()
         {
             repository = new GenericRepository<T>();
