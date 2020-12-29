@@ -8,7 +8,6 @@
 <script>
 // @ is an alias to /src
 import { HelloWorld } from '@/components';
-import { pessoaAPI } from '@/modules/pessoa/API/PessoaAPI';
 
 export default {
   name: 'Home',
@@ -17,17 +16,7 @@ export default {
   },
   data() {
     return {
-      pessoas: [],
     };
-  },
-  methods: {
-    listarPessoas() {
-      pessoaAPI.list()
-        .then((resp) => {
-          this.pessoas = resp.data;
-        })
-        .catch();
-    },
   },
   mounted() {
     this.listarPessoas();

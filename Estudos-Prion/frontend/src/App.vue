@@ -28,7 +28,24 @@ export default {
   methods: {
     ...mapActions([
       'setLoading',
+      'logout',
     ]),
+    enableInterceptor() {
+      this.$http.interceptors.request.use(
+        (config) => config,
+        (error) => Promise.reject(error),
+      );
+      this.$http.interceptors.response.use((response) => response, (err) => {
+        if (err.response.status === 401) {
+          this.logout();
+          this.$router.push('/login');
+        }
+        return Promise.reject(err);
+      });
+    },
+  },
+  mounted() {
+    this.enableInterceptor();
   },
 };
 </script>

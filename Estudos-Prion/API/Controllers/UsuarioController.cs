@@ -83,7 +83,8 @@ namespace API.Controllers
                 Senha = "123",
                 UsuarioId = 1
             };
-            if (usuarioDb == null || usuarioDb.Senha != usuario.Senha)
+            if (usuarioDb == null || usuarioDb.Senha != usuario.Senha
+                || usuarioDb.Email != usuario.Email)
                 return Request.CreateResponse(HttpStatusCode.Forbidden,
                      "Usuário ou Senha inválidos.");
             return Request.CreateResponse(HttpStatusCode.OK,

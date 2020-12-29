@@ -7,10 +7,11 @@ const http = axios.create({
 
 http.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('token');
+    const configuration = config;
+    const token = JSON.parse(localStorage.getItem('user'));
 
     if (token) {
-      this.config.headers.Authorization = `Bearrer ${token}`;
+      configuration.headers.Authorization = `Bearer ${token.data}`;
     }
 
     return config;

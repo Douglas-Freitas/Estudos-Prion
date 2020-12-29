@@ -8,6 +8,7 @@ export default new Vuex.Store({
     isLogged: false,
     user: {},
     loading: false,
+    token: '',
   },
   mutations: {
     SET_USER(state, payload) {
@@ -18,6 +19,17 @@ export default new Vuex.Store({
     SET_LOADING(state, payload) {
       state.loading = payload;
     },
+    SET_TOKEN(state, payload) {
+      state.token = payload;
+      localStorage.setItem('token', payload);
+    },
+    LOGOUT(state) {
+      state.isLogged = false;
+      state.user = {};
+      state.token = '';
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+    },
   },
   actions: {
     setUser({ commit }, payload) {
@@ -26,6 +38,12 @@ export default new Vuex.Store({
     setLoading({ commit }, payload) {
       commit('SET_LOADING', payload);
     },
+    setToken({ commit }, payload) {
+      commit('SET_TOKEN', payload);
+    },
+    logout({ commit }) {
+      commit('LOGOUT');
+    },
   },
   modules: {
   },
@@ -33,5 +51,6 @@ export default new Vuex.Store({
     isLogged: (state) => state.isLogged,
     user: (state) => state.user,
     loading: (state) => state.loading,
+    token: (state) => state.token,
   },
 });
