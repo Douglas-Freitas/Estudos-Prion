@@ -2,8 +2,8 @@
   <div id="app">
     <Loader :is-visible="loading"></Loader>
     <v-app>
-      <div id="nav">
-        <router-link to="/login">Login</router-link> |
+      <div id="nav" v-if="isLogged">
+        <!-- <router-link to="/login">Login</router-link> | -->
         <router-link to="/home">Home</router-link> |
         <router-link to="/about">About</router-link> |
         <router-link to="/lista-pessoas">Pessoas</router-link> |
@@ -20,7 +20,7 @@ import { mapActions, mapGetters } from 'vuex';
 
 export default {
   computed: {
-    ...mapGetters(['loading']),
+    ...mapGetters(['loading', 'isLogged']),
   },
   components: {
     Loader,
